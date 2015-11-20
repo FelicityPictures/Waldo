@@ -2,6 +2,7 @@ import google, urllib2, bs4, re
 
 x = 0
 
+#decides what kind of question it is and how we will find the answer
 def first(question = ""):
     global x
     first = question.split(' ', 1)[0].lower()
@@ -22,5 +23,14 @@ def first(question = ""):
     elif first == 'which':
         x = 8
     return first
+
+#gets results from google and turns into actual string
+def getResults(question = ""):
+    question = question.lower()
+    
+
+#breaks down string and returns real answer. Use this method only!
+def answer(question = ""):
+    
 
 print first("Where am I?")+ str(x)
