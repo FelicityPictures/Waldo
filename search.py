@@ -3,6 +3,8 @@ import google, urllib2, bs4, re
 x = 0
 q = ""
 
+stoptext = open(path,'r')
+
 #decides what kind of question it is and how we will find the answer
 #removes stop words from question and change into q, which we will google
 def first(question = ""):
@@ -27,8 +29,18 @@ def first(question = ""):
         x = 8
 
     #changes q, removes stopwords
-    for w in question:
-        if:
+    word = 0
+    
+    while word < question.length:
+        with open('stop.txt') as f:
+            for stopWord in f:
+                print stopWord
+                if word == stopWord:
+                    #will add a way to remove the word
+                    #what is question? a list? or a string?
+        word += 1
+    
+                    
             
 
 #gets results from google and returns string without stopwords
