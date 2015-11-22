@@ -12,7 +12,7 @@ def home():
     
     q = request.form.get('query', '')
     results = search.answer(q)
-    return render_template("home.html". results = results)
+    return render_template("home.html", results = results)
 
 @app.route("/waldo")    
 def waldo():
