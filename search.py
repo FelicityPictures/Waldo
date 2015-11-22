@@ -27,11 +27,11 @@ def first(question = ""):
         x = 8
 
     #changes q, removes stopwords
-    while counter < first.length:
+    counter = 0
+    while counter < len(first):
         with open('stop.txt') as f:
             for word in f:
-                print word
-                if w == word:
+                if first[counter] == word:
                     first.remove(counter)
         counter += 1
         
@@ -47,6 +47,6 @@ def getResults(question = ""):
 
 #breaks down string and returns real answer. Use this method only!
 def answer(question = ""):
-    
+    return
 
 print first("Where am I?")+ str(x)
