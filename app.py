@@ -4,6 +4,8 @@ from flask import redirect, render_template, request, session
 import search
 import random
 
+app = Flask(__name__)
+
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def home():
@@ -25,4 +27,4 @@ def waldo():
     
 if __name__ == '__main__':
   app.debug = True
-  app.run()
+  app.run(host="0.0.0.0", port=8000)

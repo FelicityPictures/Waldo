@@ -3,7 +3,7 @@ import google, urllib2, bs4, re
 x = 0
 q = ""
 
-stoptext = open(path,'r')
+stoptext = open("stop.txt",'r')
 
 #decides what kind of question it is and how we will find the answer
 #removes stop words from question and change into q, which we will google
@@ -31,25 +31,27 @@ def first(question = ""):
     #changes q, removes stopwords
     word = 0
     
-    while word < question.length:
+    while word < len(question):
         with open('stop.txt') as f:
             for stopWord in f:
                 print stopWord
                 if word == stopWord:
+                    word +=2
                     #will add a way to remove the word
                     #what is question? a list? or a string?
         word += 1
+    return question
     
                     
             
 
 #gets results from google and returns string without stopwords
-def getResults(question = ""):
+#def getResults(question = ""):
     question = question.lower()
     
 
 #breaks down string and returns real answer. Use this method only!
-def answer(question = ""):
+#def answer(question = ""):
     
 
 print first("Where am I?")+ str(x)
