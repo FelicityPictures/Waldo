@@ -27,9 +27,18 @@ def first(question = ""):
         x = 8
 
     #changes q, removes stopwords
-    for w in question:
-        if:
-            
+    while counter < first.length:
+        with open('stop.txt') as f:
+            for word in f:
+                print word
+                if w == word:
+                    first.remove(counter)
+        counter += 1
+        
+    cleanQuestion = ""
+    for w in first:
+        cleanQuestion += w + ' '
+    
 
 #gets results from google and returns string without stopwords
 def getResults(question = ""):
