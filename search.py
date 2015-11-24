@@ -1,4 +1,5 @@
-import google, urllib2, bs4, re
+
+import google, urllib2, re, bs4
 
 x = 0
 q = ""
@@ -47,29 +48,58 @@ def first(question = ""):
 
 #gets results from google and returns string without stopwords
 def getResults(question = ""):
-    results = google.search(question,num=20,start=0,stop=20)
+
+    global x
+    #searches through google results for names
+    if x==1:
+        nameDictionary = {}
+        results = google.search(question,num=5 ,start=0,stop=5 )
+        urls = []
+        for r in results:
+            urls.append(r)
+#           results = []
+            counter = 0
+            while counter < len(urls):
+                url=urllib2.urlopen(urls[counter])
+                page = url.read().decode('utf-8')
+                soup = bs4.BeautifulSoup(page, "html.parser")
+                raw = soup.get_text(page)
+                text = re.findAll("[\t\n ]+",' ',raw[0:300])
+                results.append(text)
+                counter += 1
+
+        #loop through nameDictionary to find the one with highest entry
+        return
+
+
+
+
+    
+        """
+    results = google.search(question,num=5 ,start=0,stop=5 )
    
     urls = []
     for r in results:
+        print r
         urls.append(r)
-    
+
+    results = []
     counter = 0
     while counter < len(urls):
         url=urllib2.urlopen(urls[counter])
-        page = url.read().decode('utf8')
-        soup = BeautifulSoup(page, "html.parser")
+        page = url.read().decode('utf-8')
+        soup = bs4.BeautifulSoup(page, "html.parser")
         raw = soup.get_text(page)
-        text = re.sub("[\t\n ]+",' ',raw)
-        urls[counter] = text
+        text = re.findAll("[\t\n ]+",' ',raw[0:300])
+        results.append(text)
+        counter += 1
 
     return urls
-        
-    
-    
+      """
     
 
 #breaks down string and returns real answer. Use this method only!
 #def answer(question = ""):
     
 
-print getResults("superman")
+print getResults("Who is Superman?")
