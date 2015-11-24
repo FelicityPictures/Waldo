@@ -21,7 +21,6 @@ def waldo():
     ## randomly select an image with waldo puzzle
     file_num = random.randrange(9) + 1
     img = "waldo_"+ str(file_num) + ".jpg"
-    print img
     return render_template("waldo.html", img = img)
 
     

@@ -46,12 +46,30 @@ def first(question = ""):
             
 
 #gets results from google and returns string without stopwords
-#def getResults(question = ""):
-    question = question.lower()
+def getResults(question = ""):
+    results = google.search(question,num=20,start=0,stop=20)
+   
+    urls = []
+    for r in results:
+        urls.append(r)
+    
+    counter = 0
+    while counter < len(urls):
+        url=urllib2.urlopen(urls[counter])
+        page = url.read().decode('utf8')
+        soup = BeautifulSoup(page, "html.parser")
+        raw = soup.get_text(page)
+        text = re.sub("[\t\n ]+",' ',raw)
+        urls[counter] = text
+
+    return urls
+        
+    
+    
     
 
 #breaks down string and returns real answer. Use this method only!
 #def answer(question = ""):
     
 
-print first("Where am I?")+ str(x)
+print getResults("superman")
