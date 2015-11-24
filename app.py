@@ -4,6 +4,8 @@ from flask import redirect, render_template, request, session
 import search
 import random
 
+app = Flask(__name__)
+
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def home():
@@ -12,7 +14,7 @@ def home():
     
     q = request.form.get('query', '')
     results = search.answer(q)
-    return render_template("home.html". results = results)
+    return render_template("home.html", results = results)
 
 @app.route("/waldo")    
 def waldo():

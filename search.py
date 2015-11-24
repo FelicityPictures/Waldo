@@ -49,4 +49,4 @@ def getResults(question = ""):
 def answer(question = ""):
     return
 
-print first("Where am I?")+ str(x)
+#print first("Where am I?")+ str(x)
