@@ -52,12 +52,17 @@ def getResults(question = ""):
     urls = []
     for r in results:
         urls.append(r)
-        
-    url=urllib2.urlopen(urls[0])
-    page = url.read().decode('ascii')
-    soup = BeautifulSoup(page)
-    raw = soup.get_text(page)
-    text = re.sub("[\t\n ]+",' ',raw)
+    
+    counter = 0
+    while counter < len(urls):
+        url=urllib2.urlopen(urls[counter])
+        page = url.read().decode('utf8')
+        soup = BeautifulSoup(page, "html.parser")
+        raw = soup.get_text(page)
+        text = re.sub("[\t\n ]+",' ',raw)
+        urls[counter] = text
+
+    return urls
         
     
     
@@ -67,4 +72,4 @@ def getResults(question = ""):
 #def answer(question = ""):
     
 
-print first("Where am I?")+ str(x)
+print getResults("superman")
