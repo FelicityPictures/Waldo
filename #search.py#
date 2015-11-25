@@ -11,23 +11,7 @@ stoptext = open("stop.txt",'r')
 def first(question = ""):
     global x, q
     first = question.split(' ',1)[0].lower()
-    #changes x
-    if first == 'who':
-        x = 1
-    elif first == 'what':
-        x = 2
-    elif first == 'when':
-        x = 3
-    elif first == 'where':
-        x = 4
-    elif first == 'why':
-        x = 5
-    elif first == 'is':
-        x = 6
-    elif first == 'how':
-        x = 7
-    elif first == 'which':
-        x = 8
+    
 
     #changes q, removes stopwords
     counter = 0
