@@ -11,7 +11,10 @@ def subjectofQ(q_words = []):
                     q_words.remove(counter)
         counter = counter+1
     r = " ".join(q_words)
-    return r # string of words to query
+    print type(r)
+    x = "hello"
+    print type(x)
+    return str(r) # string of words to query
 
 
 def search(question = ""):
@@ -23,3 +26,4 @@ def search(question = ""):
     print "firstWord: " + str(firstWord)
 
 search("What is Superman?")
+
