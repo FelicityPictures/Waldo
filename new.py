@@ -10,11 +10,8 @@ def cutQuery(q_words = []):
                 if q_words[counter]==word:
                     q_words.remove(counter)
         counter = counter+1
-    r = " ".join(q_words)
-    #print type(r)
-    x = "hello"
-    #print type(x)
-    return str(r) # string of words to query
+    result = " ".join(q_words)
+    return result # string of words to query
 
 
 def search(query = ""):
