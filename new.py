@@ -2,7 +2,7 @@ import google, urllib2, re, bs4
 
 stoptext = open("stop.txt", 'r')
 
-def subjectofQ(q_words = []):
+def cutQuery(q_words = []):
     counter = 0
     while counter<len(q_words):
         with open('stop.txt') as f:
@@ -11,28 +11,28 @@ def subjectofQ(q_words = []):
                     q_words.remove(counter)
         counter = counter+1
     r = " ".join(q_words)
-    print type(r)
+    #print type(r)
     x = "hello"
-    print type(x)
+    #print type(x)
     return str(r) # string of words to query
 
 
 def search(query = ""):
     q_words = query.lower().split(' ')
     print "q_words: " + str(q_words)
-    subjectOfQ = subjectofQ(q_words)
-    print "subjectofQ: " + str(subjectofQ)
+    search_q = cutQuery(q_words)
+    print "new query: " + search_q
     firstWord = q_words[0]
     print "firstWord: " + str(firstWord)
 
     if firstWord == "who":
-        #do this
+        print "who" #do this
     elif firstWord == "what":
-        #do this
+        print "what" #do this
     elif firstWord == "when":
-        # do this
+        print "when" # do this
     elif firstWord == "where":
-        # do this
+        print "where" # do this
 
 search("What is Superman?")
 
