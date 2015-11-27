@@ -25,5 +25,14 @@ def search(question = ""):
     firstWord = q_words[0]
     print "firstWord: " + str(firstWord)
 
+    if firstWord == "who":
+        #do this
+    elif firstWord == "what":
+        #do this
+    elif firstWord == "when":
+        # do this
+    elif firstWord == "where":
+        # do this
+
 search("What is Superman?")
 
