@@ -17,8 +17,8 @@ def subjectofQ(q_words = []):
     return str(r) # string of words to query
 
 
-def search(question = ""):
-    q_words = question.lower().split(' ')
+def search(query = ""):
+    q_words = query.lower().split(' ')
     print "q_words: " + str(q_words)
     subjectOfQ = subjectofQ(q_words)
     print "subjectofQ: " + str(subjectofQ)
