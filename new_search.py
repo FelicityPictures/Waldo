@@ -54,6 +54,6 @@ def search(query):
         print "invalid search please try again"
 
 #cutQuery(['Who.', 'is.', ',Superman?'])
-search("Who. is, Clark Kent?")
+search("What. is, The Sorcerer's Stone?")
 
 
