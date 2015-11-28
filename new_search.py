@@ -16,7 +16,7 @@ def cutQuery(q_words):
     return r # string of words to query
 
 def getResults(query, regex):
-    results = google.search(query,num=2,start=0,stop=2 )
+    results = google.search(query,num=4,start=0,stop=4 )
    
     urls = []
     for r in results:
@@ -43,7 +43,7 @@ def search(query):
     print "search_q: " + search_q
 
     if q_type == "who":
-        getResults(query, "([A-Z]{?}) ([a-z]{7})")
+        print getResults(query, "([A-Z]{?}) ([a-z]{7})")
     elif q_type == "what":
         print "what" #do this
     elif q_type == "when":
