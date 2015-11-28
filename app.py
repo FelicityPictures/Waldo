@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import redirect, render_template, request, session
 
-import search
+import new_search
 import random
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def home():
         return render_template("home.html")
     
     q = request.form.get('query', '')
-    results = search.answer(q)
+    results = new_search.search(q)
     return render_template("home.html", results = results)
 
 @app.route("/waldo")    
