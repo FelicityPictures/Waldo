@@ -15,8 +15,8 @@ def cutQuery(q_words):
     r = " ".join(q_words).strip()
     return r # string of words to query
 
-def getResults(search_type):
-    results = google.search(question,num=10,start=0,stop=10 )
+def getResults(query, search_type):
+    results = google.search(query,num=10,start=0,stop=10 )
    
     urls = []
     for r in results:
@@ -29,7 +29,7 @@ def getResults(search_type):
         page = url.read().decode('utf-8')
         soup = bs4.BeautifulSoup(page, "html.parser")
         raw = soup.get_text(page)
-        text = re.findAll("[\t\n ]+",' ',raw[0:300])
+        text = re.findAll("Superman is")
         results.append(text)
         counter += 1
     return results
@@ -43,13 +43,15 @@ def search(query):
     print "search_q: " + search_q
 
     if q_type == "who":
-        getResults('''regexexpression''')
+        getResults(query, '''regexexpression''')
     elif q_type == "what":
         print "what" #do this
     elif q_type == "when":
         print "when" # do this
     elif q_type == "where":
         print "where" # do this
+    else:
+        print "invalid search please try again"
 
 #cutQuery(['Who.', 'is.', ',Superman?'])
 search("Who. is, Clark Kent?")
