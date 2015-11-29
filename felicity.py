@@ -16,4 +16,21 @@ def question(question = ""):
     r = " ".join(question).strip()
     return r
 
-print question("Who is Superman")
+#print question("Who is Superman")
+
+
+#takes subject from question() to find google stuff
+def getResults(question):
+    #Not sure if below line works VVV
+    pages = google.search(question,num=2,start=0,stop=2)
+   
+    urls = []
+    for r in pages:
+        urls.append(r)
+
+    url = urllib2.urlopen(urls[0])
+    print "url: " +  str(url)
+    page = url.read().decode('utf-8')
+    print "page: " + str(page)
+
+getResults("Superman")

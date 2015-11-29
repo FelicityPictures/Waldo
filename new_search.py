@@ -2,6 +2,8 @@ import google, urllib2, re, bs4
 
 stoptext = open("stop.txt", 'r')
 
+#Takes question and removes stop words to get the subject of the question
+#that will be used for googling
 def cutQuery(q_words):
     counter = 0
     while counter<len(q_words):
@@ -13,7 +15,7 @@ def cutQuery(q_words):
                     q_words[counter] = ''
         counter = counter+1
     r = " ".join(q_words).strip()
-    return r # string of words to query
+    return r
 
 def getResults(query, regex):
     results = google.search(query,num=2,start=0,stop=2)
