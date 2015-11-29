@@ -45,13 +45,20 @@ def search(query):
     print "search_q: " + search_q
 
     if q_type == "who":
+        #Only finds names (ALL names)
         print getResults(query, "(([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*))")
+
     elif q_type == "what":
         print "what" #do this
+
     elif q_type == "when":
-        print "when" # do this
+        #Only finds dates in the format of:
+        #<dayOfWeek>, <Month> <dayOfMonth>, <Year>
+        print getResults(query, "(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ?(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, [0-9]{4}")
+
     elif q_type == "where":
-        print "where" # do this
+        #Only works on <place1>, <place2>
+        print getResults(query, "((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*))")
     else:
         print "invalid search please try again"
 
