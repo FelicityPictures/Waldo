@@ -45,7 +45,7 @@ def search(query):
     print "search_q: " + search_q
 
     if q_type == "who":
-        print getResults(query, "([A-Z]{?}) ([a-z]{7})")
+        print getResults(query, "(([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*))")
     elif q_type == "what":
         print "what" #do this
     elif q_type == "when":
