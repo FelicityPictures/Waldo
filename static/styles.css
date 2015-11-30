@@ -2,7 +2,7 @@ html{
     height: 100%;
 }
 
-body{
+#body1{
     height: 100%;
     background: repeating-linear-gradient(
   0deg,
@@ -12,6 +12,17 @@ body{
   #fff 100px
 );
     overflow: hidden;
+}
+
+#body2{
+    height: 100%;
+    background: repeating-linear-gradient(
+  0deg,
+  #FF2F2B,
+  #FF2F2B 50px,
+  #fff 50px,
+  #fff 100px
+);
 }
 
 
@@ -36,13 +47,15 @@ body{
 
 .answerholder{
     width: 50%;
-    height: 50%;
+    /*height: auto;*/
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 0;
-    bottom: 0;
+    bottom: 15%;
     right: 0;
     margin: auto;
+    background-color: #ECC16F;
+    border-radius: 10px;
     padding-left: 2.5%; 
 }
 

@@ -2,21 +2,22 @@
 
 {% block main %}
 
-<h1 align="center"> WALDO'S RESULTS </h1>
-        <body> 
+<body id="body2">
+    <div class="answerholder">
+        <h1> WALDO'S RESULTS </h1>
             <hr>
-                <h2 align="center"><b>Q: {{ query }}<b></h2>
-            <br>
-	      <b> Results: <b> 
-            <br>
-	    <ul> 
-	    {% for r in results %}
-	       <li> {{ r }} </li>
-	    {% endfor %}
-	    </ul>
+                <h2><b>Q: {{ query }}</b></h2>
+                <br>
+                        <b> Results: </b>
+                <br>
+	       <ul> 
+	           {% for r in results %}
+	               <li> {{ r }} </li>
+	           {% endfor %}
+	       </ul>
 
-  <br>
-
+        <br>
+            </div>                 
 </body>
 
 {% endblock main %}
