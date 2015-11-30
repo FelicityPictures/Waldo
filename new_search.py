@@ -46,7 +46,8 @@ def search(query):
 
     if q_type == "who":
         #Only finds names (ALL names)
-        print getResults(query, "(([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*))")
+        reg = "((" + search_q + " is) ([A-Z]{1}[a-z]*)?)"
+        print getResults(query, reg)
 
     elif q_type == "what":
         print "what" #do this
@@ -54,11 +55,13 @@ def search(query):
     elif q_type == "when":
         #Only finds dates in the format of:
         #<dayOfWeek>, <Month> <dayOfMonth>, <Year>
-        print getResults(query, "(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ?(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, [0-9]{4}")
+        reg = "((" + search_q + " is on) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ?(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, [0-9]{4})"
+        print getResults(query, reg)
 
     elif q_type == "where":
         #Only works on <place1>, <place2>
-        print getResults(query, "((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*))")
+        reg = "((" + search_q + " is in) ((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*))"
+        print getResults(query, reg)
     else:
         print "invalid search please try again"
 
