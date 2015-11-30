@@ -1,23 +1,24 @@
-<!DOCTYPE html>
+{% extends "blocks.html" %}
+<!--<!DOCTYPE html>
 <html>
-    <!-----------------BEGIN HEAD, IMPORT ALL STYLING, SET TITLE-------------------->
+    <!-----------------BEGIN HEAD, IMPORT ALL STYLING, SET TITLE--------------------
     <head>
         <meta charset="utf-8">
         <title></title>
         
         
-        <!------------------- IMPORT BOOTSTRAP HERE --------------->
-            <!-- Latest compiled and minified CSS -->
+        <!------------------- IMPORT BOOTSTRAP HERE ---------------
+            <!-- Latest compiled and minified CSS --
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-            <!-- Optional theme -->
+            <!-- Optional theme --
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-            <!-- Latest compiled and minified JavaScript -->
+            <!-- Latest compiled and minified JavaScript --
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
         
-        <!-------------------IMPORT STYLESHEET AND FLAT UI FRAMEWORK ------->
+        <!-------------------IMPORT STYLESHEET AND FLAT UI FRAMEWORK -------
         <link rel="stylesheet" type="text/css" href="/static/flat-ui.css">
         <link rel="stylesheet" type="text/css" href="/static/styles.css">
 
@@ -28,12 +29,8 @@
     
     
     
-    
-    <!-------------BEGIN BODY --------------->
-    <body>
-        <div class="formholder">
+{% block main %}
             <!--Start Form-->
-	    <!--nellie deleted .html-->
             <form action="/home" method="POST" role="form">
                 <!-----------HEADER WRITING-------->
                 <center>
@@ -57,9 +54,7 @@
                 
             </form>
             <!---End Form--->
-        </div>
-    </body>
-    <!-------------END BODY --------------->
+{% endblock main %}
 </html>
 
 
