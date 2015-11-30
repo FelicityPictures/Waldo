@@ -2,26 +2,23 @@ from flask import Flask
 from flask import redirect, render_template, request, session
 
 import new_search
-import random
+import random, string
 
 app = Flask(__name__)
 
-@app.route("/", methods=['GET', 'POST'])
-@app.route("/home", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
+@app.route("/home", methods=['GET'])
+@app.route("/home/", methods=['GET'])
 def home():
-    if request.method == 'GET':
-        return render_template("home.html")
-    
-    q = request.form.get('query', '')
-    results = new_search.search(q)
-    return render_template("home.html", results = results)
+    return render_template("home.html")
 
-@app.route("/waldo")    
+
+@app.route("/waldo", methods=['POST'])    
 def waldo():
-    ## randomly select an image with waldo puzzle
-    file_num = random.randrange(9) + 1
-    img = "waldo_"+ str(file_num) + ".jpg"
-    return render_template("waldo.html", img = img)
+    q = request.form.get('query', '')
+    #results = new_search.search(q)
+    results = ["hi", "hi", "hi", "hi", "hi"]
+    return render_template("waldo.html", results = results, query = string.capwords(q) )
 
     
 if __name__ == '__main__':

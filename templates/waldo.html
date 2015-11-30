@@ -2,16 +2,19 @@
 
 {% block main %}
 
-<h1 align="center"> FIND WALDO </h1>
+<h1 align="center"> WALDO'S RESULTS </h1>
         <body> 
-    
-            <!--<img src="/static/{{img}}" align="center">-->
             <hr>
-                <h2>{{##query##}}</h2>
+                <h2 align="center">{{ query }}</h2>
             <br>
-            <center>
-                <p>{{##output of search##}}</p>
-            </center>
+	      <b> Results: <b> 
+            <br>
+	    <ul> 
+	    {% for r in results %}
+	       <li> {{ r }} </li>
+	    {% endfor %}
+	    </ul>
+
   <br>
 
 </body>
