@@ -16,10 +16,9 @@ def home():
 @app.route("/waldo", methods=['POST'])    
 def waldo():
     q = request.form.get('query', '')
-    #results = new_search.search(q)
-    results = ["hi", "hi", "hi", "hi", "hi"]
+    results = new_search.search(q)
+    #results = ["hi", "hi", "hi", "hi", "hi"]
     return render_template("waldo.html", results = results, query = string.capwords(q) )
-
     
 if __name__ == '__main__':
   app.debug = True
