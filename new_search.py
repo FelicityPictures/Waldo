@@ -31,7 +31,7 @@ def getResults(query, regex):
         page = url.read().decode('utf-8')
         soup = bs4.BeautifulSoup(page, "html.parser")
         raw = soup.get_text(page)
-        text = re.search(regex, raw[0:2000])
+        text = re.search(regex, raw[0:2000]).group(0)
         results.append(text)
         counter += 1
     return results
