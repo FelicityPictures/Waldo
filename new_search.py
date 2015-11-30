@@ -55,7 +55,7 @@ def search(query):
         return getResults(query, reg)
 
     elif q_type == "what":
-        return "what" #do this
+        return []
 
     elif q_type == "when":
         #Only finds dates in the format of:
