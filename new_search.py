@@ -64,10 +64,10 @@ def search(query):
 
     elif q_type == "where":
         #Only works on <place1>, <place2>
-        reg = "((" + search_q + " is in) ((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*))"
+        reg = "((" + search_q + " is in) ((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*)))"
         print getResults(query, reg)
     else:
         print "invalid search please try again"
 
-search("Who is Clark Kent")
+#search("Who is Clark Kent")
 
