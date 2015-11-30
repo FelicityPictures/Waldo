@@ -31,13 +31,14 @@ def getResults(query, regex):
         page = url.read().decode('utf-8')
         soup = bs4.BeautifulSoup(page, "html.parser")
         raw = soup.get_text(page)
-        temp = re.search(regex, raw[0:2000])
-        if temp is not None:
-            text = temp.group(0)
-        else:
-            text = ""
-        results.append(text)
-        counter += 1
+        results = re.search(regex, raw[0:2000])
+      #  temp = re.search(regex, raw[0:2000])
+      #  if temp is not None:
+     #       text = temp.group(0)
+     #   else:
+     #       text = ""
+    #    results.append(text)
+     #   counter += 1
     return results
 
 
@@ -51,23 +52,23 @@ def search(query):
     if q_type == "who":
         #Only finds names (ALL names)
         reg = "((" + search_q + " is) ([A-Z]{1}[a-z]*)?)"
-        print getResults(query, reg)
+        return getResults(query, reg)
 
     elif q_type == "what":
-        print "what" #do this
+        return "what" #do this
 
     elif q_type == "when":
         #Only finds dates in the format of:
         #<dayOfWeek>, <Month> <dayOfMonth>, <Year>
         reg = "((" + search_q + " is on) (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), ?(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,2}, [0-9]{4})"
-        print getResults(query, reg)
+        return getResults(query, reg)
 
     elif q_type == "where":
         #Only works on <place1>, <place2>
         reg = "((" + search_q + " is in) ((([A-Z]{1}[a-z]*) ([A-Z]{1}[a-z]*)), ([A-Z]{2}|[A-Z]{1}[a-z]* [A-Z]{1}[a-z]*)))"
-        print getResults(query, reg)
+        return getResults(query, reg)
     else:
-        print "invalid search please try again"
+        return []
 
 #search("Who is Clark Kent")
 
